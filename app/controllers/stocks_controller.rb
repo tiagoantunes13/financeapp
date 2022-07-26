@@ -9,9 +9,8 @@ class StocksController < ApplicationController
         #render "users/my_portfolio"
 
         respond_to do |format|
-          format.turbo_stream { render turbo_stream: turbo_stream.prepend("idteste", partial: "users/result") }
-          format.html { render "users/my_portfolio"} ## Specify the format in which you are rendering "new" page
-
+          format.turbo_stream { render turbo_stream: turbo_stream.update(:idteste, partial: "users/result") }
+          #format.html { render 'users/my_portfolio'} ## Specify the format in which you are rendering "new" page
         end
         #render 'users/my_portfolio'
       end
