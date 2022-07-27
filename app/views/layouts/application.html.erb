@@ -13,9 +13,12 @@
   </head>
 
   <body>
+  <%= Time.zone.now %>
     <%= render 'layouts/navbar' %>
     <div class="container">
-      <%= render 'layouts/messages' %>
+      <div id="messagess">
+        <%= render 'layouts/messages' %>
+      </div>
       <%= yield %>
     </div>
   </body>

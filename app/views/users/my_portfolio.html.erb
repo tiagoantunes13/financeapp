@@ -1,21 +1,11 @@
 
-
-<%= form_tag search_stock_path, remote: true, method: :post do  %>
-  <div class="d-flex justify-content-center form-group row ">
-    <div class="col-sm-8">
-      <div class="input-group mb-3 mt-5">
-        <%= text_field_tag :stock, params[:stock], class:"form-control form-control-lg", placeholder:"Stock ticker symbol", autofocus:true%>
-        <%= button_tag type: :submit, class: "btn btn-success" do%>
-          <%= 'Search' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-<% end %>
-
+<div id="formUpdate">
+  <%= render partial: "stocks/searchform" , locals: {stock: "Search"} %>
+</div>
 <div id="idteste">
   <%= render partial: 'users/result' %>
 </div>
+
 
 
 

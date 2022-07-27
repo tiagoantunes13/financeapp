@@ -1,0 +1,13 @@
+<%= form_tag search_stock_path, remote: true, method: :post do  %>
+  <div class="d-flex justify-content-center form-group row ">
+    <div class="col-sm-8">
+      <div class="input-group mb-3 mt-5">
+        <%= text_field_tag :stock,nil, class:"form-control form-control-lg", placeholder:"Stock ticker symbol", autofocus:true%>
+        <%= button_tag type: :submit, class: "btn btn-success" do%>
+          <%= stock %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
