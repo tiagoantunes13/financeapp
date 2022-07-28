@@ -10,7 +10,9 @@
              class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), data:{turbo: :false}) do |f| %>
+          <%= bootstrap_devise_error_messages! %>
+
           <div class="form-outline mb-4">
             <%= f.label :email %>
             <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control form-control-lg' %>

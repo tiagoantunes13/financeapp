@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <%= link_to "Finance App", root_path, class:"navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <%= link_to "Home", root_path, class:"nav-link active" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <%= link_to "Portfolio", my_portfolio_path, class:"nav-link active" %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -27,10 +27,25 @@
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
+    <nav class="navbar navbar-light bg-light">
+      <form class="container-fluid justify-content-start">
+        <% if !user_signed_in? %>
+          <%= link_to "Sign in  ", new_user_registration_path	, class: "btn btn-outline-secondary"%>
+          <%= link_to "Login", new_user_session_path, class: "btn btn-outline-secondary"%>
+      <% else %>
+
+
+          <div  class="nav-link">
+            <h5 class="ml-5">
+              <i class="fa-solid fa-user"></i> <%= current_user.full_name %>
+            </h5>
+          </div>
+
+          <%= link_to "Edit", edit_user_registration_path(current_user)	, class: "btn btn-outline-secondary" %>
+        <%= link_to "Log out", destroy_user_session_path, class: "btn btn-outline-secondary", data:{turbo_method: :delete}%>
+      <% end %>
+          </form>
+    </nav>
   </div>
 </nav>

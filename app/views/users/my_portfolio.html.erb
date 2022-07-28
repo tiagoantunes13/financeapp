@@ -1,11 +1,13 @@
+<%= turbo_frame_tag "formUpdate" do %>
+    <%= render partial: "stocks/searchform" , locals: {stock: "Search"} %>
+<% end %>
 
-<div id="formUpdate">
-  <%= render partial: "stocks/searchform" , locals: {stock: "Search"} %>
-</div>
-<div id="idteste">
-  <%= render partial: 'users/result' %>
-</div>
+<%= turbo_frame_tag "idteste" do %>
+    <%= render partial: 'users/result' %>
+<% end %>
 
 
-
+<%= turbo_frame_tag "listastocks" do %>
+    <%= render partial: 'stocks/list' %>
+<% end %>
 

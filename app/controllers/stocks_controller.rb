@@ -17,16 +17,21 @@ class StocksController < ApplicationController
         end
       else
         #render "users/my_portfolio"
+        if current_user.stocks.size == 10
+          var = false
+        else
+          var = true
+        end
 
         respond_to do |format|
           format.turbo_stream do
             render turbo_stream: [
-              turbo_stream.prepend(:idteste, partial: "users/result"),
+              turbo_stream.prepend(:idteste, partial: "users/result", locals:{variable: var}),
               turbo_stream.update(:formUpdate, partial: "stocks/searchform", locals: {stock: "Asdasd"})
             ]
-          #format.html { render 'users/my_portfolio'} ## Specify the format in which you are rendering "new" page
+            #format.html { render 'users/my_portfolio'} ## Specify the format in which you are rendering "new" page
           end
-          end
+        end
         #render 'users/my_portfolio'
       end
     else
