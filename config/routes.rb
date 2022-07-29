@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   devise_for :users
   get "my_portfolio", to: 'users#my_portfolio'
   post 'search_stock', to: 'stocks#search'#, defaults: { format: :turbo_stream }
+  get 'my_friends', to: 'users#show_friends'
+  resources :friendships
+  get 'my_friends', to: 'users#show_friends'
+  post 'search_friends', to: 'users#search'#, defaults: { format: :turbo_stream }
+  resources :users, only: [:show]
+
 end

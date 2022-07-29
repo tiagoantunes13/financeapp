@@ -7,7 +7,7 @@
       <strong>Name: </strong><%=@stock.name %>
       <strong>Price: </strong><%=@stock.last_price %>
     </div>
-    <% if variable == true %>
+    <% if can_buy_stock?(@stock.ticker) == true %>
       <%= link_to "Add", user_stocks_path(user: current_user, ticker: @stock.ticker), class:"btn btn-primary btn-lg", data:{turbo_method: :post}%>
     <% end %>
   </div>

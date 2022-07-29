@@ -1,0 +1,14 @@
+<% if @user %>
+  <% @user.each do |user|%>
+    <div class="d-flex justify-content-center ">
+      <div class="card card-header results-block">
+        <strong>Email: </strong><%=user.email %>
+        <strong>Name: </strong><%=user.first_name %>
+        <strong>Actions: </strong><%="@user.last_price" %>
+      </div>
+      <% if can_be_friend?(user.id) == true %>
+        <%= link_to "Add", friendships_path(id: user.id), class:"btn btn-primary btn-lg", data:{turbo_method: :post}%>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

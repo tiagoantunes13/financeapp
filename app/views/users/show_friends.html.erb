@@ -1,0 +1,14 @@
+
+<%= turbo_frame_tag "searchfriends" do %>
+  <%= render partial: 'users/search_friends_form' %>
+<% end %>
+
+
+<%= turbo_frame_tag "idteste1" do %>
+  <%= render partial: 'users/friend_result' %>
+<% end %>
+
+
+<%= turbo_frame_tag "listafriends", target: :_top do %>
+  <%= render partial: 'users/list_friends' %>
+<% end %>
